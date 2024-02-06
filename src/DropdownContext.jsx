@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
-const DropdownContext = createContext();
+export const DropdownContext = createContext();
 
 export const useDropdown = () => useContext(DropdownContext);
 
@@ -13,11 +13,5 @@ export const DropdownProvider = ({ children }) => {
     setSelectedItem(item);
   };
 
-  return (
-    <DropdownContext.Provider
-      value={{ isOpen, selectedItem, toggleDropdown, selectItem }}
-    >
-      {children}
-    </DropdownContext.Provider>
-  );
+  return <DropdownContext.Provider value={{ isOpen, selectedItem, toggleDropdown, selectItem }}>{children}</DropdownContext.Provider>;
 };
